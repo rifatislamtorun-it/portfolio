@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifat Islam Torun — Network Engineer & Web Developer</title>
+<meta name="description" content="Portfolio of Rifat Islam Torun — Network Engineer and Web Developer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --grad-1:#8B7EF5;
+    --grad-2:#5B3FE0;
+    --grad-3:#4629B8;
+
+    --card:#FFFFFF;
+    --panel-soft:#F6F4FE;
+    --panel-line:#ECE9FA;
+
+    --text:#1E1B3A;
+    --text-dim:#6B6785;
+    --text-faint:#9C98B8;
+
+    --accent:#6C5CE7;
+    --accent-dark:#5642D6;
+    --accent-soft:#EEECFC;
+
+    --amber:#F5A524;
+    --amber-soft:#FCF0DA;
+    --green:#22C55E;
+    --green-soft:#E6F9EE;
+
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+
+    --maxw:1160px;
+    --r-lg:32px;
+    --r-md:18px;
+    --r-sm:10px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1100px 700px at 12% -10%, rgba(255,255,255,0.14), transparent 60%),
+      radial-gradient(900px 900px at 100% 0%, rgba(255,255,255,0.10), transparent 55%),
+      radial-gradient(1200px 900px at 50% 120%, rgba(255,255,255,0.08), transparent 60%),
+      linear-gradient(160deg, var(--grad-1) 0%, var(--grad-2) 55%, var(--grad-3) 100%);
+    background-attachment:fixed;
+  }
+  ::selection{background:var(--accent); color:#fff;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--text);
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:16px;
+  }
+  .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 0 rgba(34,197,94,0.5);
+    animation:pulse 2.4s infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(34,197,94,0.4);}
+    70%{box-shadow:0 0 0 7px rgba(34,197,94,0);}
+    100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}
+  }
+
+  /* page rhythm: floating rounded panels on the gradient */
+  .page-shell{
+    max-width:1260px;
+    margin:0 auto;
+    padding:110px 24px 40px;
+  }
+  .panel{
+    background:var(--card);
+    border-radius:var(--r-lg);
+    box-shadow:0 30px 60px -20px rgba(30,20,80,0.35);
+    margin-bottom:28px;
+    overflow:hidden;
+  }
+  .panel-pad{padding:64px;}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:44px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(24px, 3vw, 32px);}
+  .section-tag{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+    white-space:nowrap;
+  }
+
+  /* ============ NAV ============ */
+  header{
+    position:fixed;
+    top:22px; left:0; right:0;
+    z-index:50;
+    display:flex;
+    justify-content:center;
+    padding:0 24px;
+  }
+  nav{
+    width:100%;
+    max-width:1160px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(14px);
+    border-radius:100px;
+    padding:12px 14px 12px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 14px 34px -12px rgba(30,20,80,0.28);
+  }
+  .logo{
+    font-family:var(--font-mono);
+    font-size:14px;
+    color:var(--text);
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .logo .mark{
+    width:26px; height:26px;
+    border-radius:8px;
+    background:var(--accent);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-display);
+    font-size:13px;
+    font-weight:700;
+  }
+  .nav-links{
+    display:flex;
+    gap:26px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-dim);
+  }
+  .nav-links a{transition:color .2s ease;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-links a::before{content:" ";color:var(--text-faint);}
+  .nav-cta{
+    font-family:var(--font-mono);
+    font-size:13px;
+    font-weight:500;
+    background:var(--accent);
+    color:#fff;
+    padding:11px 22px;
+    border-radius:100px;
+    transition:background .2s ease;
+  }
+  .nav-cta:hover{background:var(--accent-dark);}
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+  .nav-toggle span{width:20px; height:2px; background:var(--text); display:block;}
+
+  /* ============ HERO ============ */
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+    padding:76px 64px;
+  }
+  .hero h1{
+    font-size:clamp(32px, 4.4vw, 50px);
+    line-height:1.12;
+    margin-bottom:20px;
+  }
+  .hero h1 .accent{color:var(--accent);}
+  .hero p.lede{
+    font-size:16.5px;
+    color:var(--text-dim);
+    max-width:48ch;
+    margin-bottom:14px;
+  }
+  .terminal-line{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-faint);
+    margin-bottom:6px;
+  }
+  .terminal-line .prompt{color:var(--accent);}
+  .typed-role{
+    color:var(--accent-dark);
+    font-weight:500;
+    transition:opacity .3s ease;
+  }
+
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:26px;}
+  .btn{
+    font-family:var(--font-mono);
+    font-size:13.5px;
+    padding:14px 24px;
+    border-radius:100px;
+    transition:all .2s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#fff;
+    font-weight:500;
+  }
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-ghost{
+    color:var(--accent-dark);
+    border:1.5px solid var(--panel-line);
+    background:var(--panel-soft);
+  }
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ring-framed topology diagram (replaces a portrait photo) */
+  .ring-frame{
+    position:relative;
+    width:100%;
+    max-width:380px;
+    aspect-ratio:1/1;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ring-outer{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:1.5px solid var(--panel-line);
+  }
+  .ring-mid{
+    position:absolute;
+    inset:22px;
+    border-radius:50%;
+    background:linear-gradient(155deg, var(--accent), var(--accent-dark));
+    box-shadow:0 24px 50px -18px rgba(108,92,231,0.55);
+  }
+  .ring-inner{
+    position:absolute;
+    inset:52px;
+    border-radius:50%;
+    background:var(--panel-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .profile-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+  }
+  .topo-svg{width:88%; height:88%;}
+  .topo-svg .node-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:8.5px;
+    fill:var(--text-dim);
+  }
+  .topo-svg .node-core-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9px;
+    fill:var(--text);
+    font-weight:600;
+  }
+  .topo-svg .edge{stroke:var(--panel-line); stroke-width:1.4;}
+  .topo-svg .node-dot{fill:#fff; stroke:var(--accent); stroke-width:1.4;}
+  .topo-svg .node-core{fill:var(--accent);}
+  .topo-svg .packet{fill:var(--amber);}
+  .float-chip{
+    position:absolute;
+    bottom:6px;
+    right:6px;
+    background:var(--card);
+    border-radius:100px;
+    padding:9px 16px;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--text-dim);
+    box-shadow:0 14px 30px -12px rgba(30,20,80,0.3);
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+
+  /* ============ ABOUT ============ */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+  }
+  .about-grid p{color:var(--text-dim); margin-bottom:16px; font-size:15px;}
+  .about-grid p strong{color:var(--text); font-weight:600;}
+
+  .topo-card{
+    background:var(--panel-soft);
+    border:1px solid var(--panel-line);
+    border-radius:var(--r-md);
+    padding:18px;
+    margin-bottom:16px;
+  }
+  .topo-card-head{
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-faint);
+    margin-bottom:6px;
+  }
+  .specs{
+    font-family:var(--font-mono);
+    font-size:13px;
+    border-radius:var(--r-md);
+    overflow:hidden;
+    height:fit-content;
+    background:var(--panel-soft);
+    border:1px solid var(--panel-line);
+  }
+  .specs-row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 20px;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .specs-row:last-child{border-bottom:none;}
+  .specs-row .k{color:var(--text-faint);}
+  .specs-row .v{color:var(--text); text-align:right; font-weight:500;}
+
+  /* ============ SKILLS ============ */
+  .layers{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .layer{padding:40px 44px; background:var(--card);}
+  .layer + .layer{border-left:1px solid var(--panel-line);}
+  .layer-tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:100px;
+    display:inline-block;
+    margin-bottom:18px;
+    font-weight:500;
+  }
+  .layer-tag.infra{color:#B5760C; background:var(--amber-soft);}
+  .layer-tag.app{color:var(--accent-dark); background:var(--accent-soft);}
+  .layer h3{font-size:19px; margin-bottom:6px;}
+  .layer .layer-sub{color:var(--text-faint); font-size:13px; margin-bottom:22px; font-family:var(--font-mono);}
+  .skill-list{list-style:none; padding:0; margin:0;}
+  .skill-list li{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px solid var(--panel-line);
+    font-size:14.5px;
+    color:var(--text-dim);
+  }
+  .skill-list li:last-child{border-bottom:none;}
+  .skill-list li span.lvl{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-faint);
+  }
+  .layer-connector{
+    grid-column:1 / -1;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-faint);
+    padding:14px 0;
+    background:var(--panel-soft);
+    border-top:1px solid var(--panel-line);
+    letter-spacing:0.04em;
+  }
+
+  /* ============ PROJECTS ============ */
+  .project-list{display:flex; flex-direction:column;}
+  .project{
+    background:var(--card);
+    padding:32px 44px;
+    display:grid;
+    grid-template-columns:130px 1fr auto;
+    gap:28px;
+    align-items:start;
+    border-bottom:1px solid var(--panel-line);
+    transition:background .2s ease;
+  }
+  .project:last-child{border-bottom:none;}
+  .project:hover{background:var(--panel-soft);}
+  .project-id{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--text-faint);
+  }
+  .project-id .stat{display:block; margin-top:6px; font-weight:600;}
+  .project-id .stat.ok{color:var(--green);}
+  .project-id .stat.wip{color:var(--amber);}
+  .project h3{font-size:18.5px; margin-bottom:8px;}
+  .project p{color:var(--text-dim); font-size:14.5px; margin:0 0 14px 0; max-width:60ch;}
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--accent-dark);
+    background:var(--accent-soft);
+    padding:4px 10px;
+    border-radius:100px;
+  }
+  .project-link{
+    font-family:var(--font-mono);
+    font-size:13px;
+    font-weight:500;
+    color:var(--accent);
+    white-space:nowrap;
+    align-self:center;
+  }
+  .project-link:hover{color:var(--accent-dark);}
+
+  /* ============ ROUTE (traceroute timeline) ============ */
+  .traceroute{font-family:var(--font-mono);}
+  .tr-header{
+    display:grid;
+    grid-template-columns:50px 1fr 110px 90px;
+    padding:16px 44px;
+    font-size:11px;
+    color:var(--text-faint);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--panel-line);
+    background:var(--panel-soft);
+  }
+  .tr-path{position:relative; padding:10px 0;}
+  .tr-line{
+    position:absolute;
+    left:62px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:var(--panel-line);
+  }
+  .tr-line-fill{
+    position:absolute;
+    left:0; top:0;
+    width:100%;
+    height:0%;
+    background:var(--accent);
+    transition:height 1.6s ease;
+  }
+  .hop{
+    position:relative;
+    display:grid;
+    grid-template-columns:50px 1fr 110px 90px;
+    align-items:center;
+    padding:24px 44px;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .hop.visible{opacity:1; transform:translateY(0);}
+  .hop-num{
+    width:12px; height:12px;
+    border-radius:50%;
+    background:#fff;
+    border:2px solid var(--panel-line);
+    position:relative;
+    left:14px;
+    z-index:2;
+  }
+  .hop.visible .hop-num{border-color:var(--accent); background:var(--accent);}
+  .hop-info .role{color:var(--text); font-size:14.5px; font-weight:600; margin-bottom:4px;}
+  .hop-info .org{color:var(--text-faint); font-size:12.5px;}
+  .hop-time{color:var(--text-dim); font-size:12.5px;}
+  .hop-status{font-size:11.5px; font-weight:600;}
+  .hop-status.up{color:var(--green);}
+  .hop-status.current{color:var(--amber);}
+
+  /* ============ CONTACT ============ */
+  .contact-box{
+    padding:64px;
+    text-align:center;
+    background:linear-gradient(155deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color:#fff;
+  }
+  .contact-box .eyebrow{color:rgba(255,255,255,0.75); justify-content:center;}
+  .contact-box .dot{background:#fff; box-shadow:0 0 0 0 rgba(255,255,255,0.5);}
+  .contact-box h2{color:#fff; font-size:clamp(24px,3.4vw,32px); margin-bottom:14px;}
+  .contact-box p{color:rgba(255,255,255,0.82); max-width:52ch; margin:0 auto 30px; font-size:15.5px;}
+  .cmd-line{
+    font-family:var(--font-mono);
+    font-size:14px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:100px;
+    padding:15px 22px;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    color:rgba(255,255,255,0.85);
+    margin-bottom:30px;
+  }
+  .cmd-line .prompt{color:#fff;}
+  .cmd-line .email{color:#fff; font-weight:500;}
+  .copy-btn{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.4);
+    background:rgba(255,255,255,0.1);
+    padding:6px 12px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .copy-btn:hover{background:rgba(255,255,255,0.24);}
+  .social-row{
+    display:flex;
+    gap:24px;
+    justify-content:center;
+    font-family:var(--font-mono);
+    font-size:13.5px;
+    color:rgba(255,255,255,0.85);
+  }
+  .social-row a:hover{color:#fff; text-decoration:underline;}
+
+  footer{
+    padding:30px 0 10px;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:rgba(255,255,255,0.65);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:860px){
+    .hero-grid, .about-grid{grid-template-columns:1fr; padding:44px 28px;}
+    .panel-pad{padding:36px 28px;}
+    .layers{grid-template-columns:1fr;}
+    .layer{padding:32px 28px;}
+    .layer + .layer{border-left:none; border-top:1px solid var(--panel-line);}
+    .project{grid-template-columns:1fr; gap:10px; padding:28px;}
+    .project-id .stat{display:inline; margin-left:8px;}
+    .project-link{justify-self:start;}
+    .nav-links{
+      position:absolute;
+      top:calc(100% + 10px); left:0; right:0;
+      background:#fff;
+      flex-direction:column;
+      padding:20px 24px;
+      border-radius:20px;
+      box-shadow:0 14px 34px -12px rgba(30,20,80,0.28);
+      display:none;
+      gap:16px;
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:flex;}
+    .nav-cta{display:none;}
+    .tr-header{grid-template-columns:40px 1fr 70px; padding:16px 28px;}
+    .tr-header span:nth-child(3){display:none;}
+    .hop{grid-template-columns:40px 1fr 70px; padding:20px 28px;}
+    .hop-time{display:none;}
+    .tr-line{left:46px;}
+    .contact-box{padding:44px 26px;}
+    .cmd-line{flex-wrap:wrap; justify-content:center; text-align:center;}
+    .page-shell{padding-top:96px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="mark">RIT</span>RIFAT IT</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">MySelf</a>
+      <a href="#skills">Stack</a>
+      <a href="#work">projects</a>
+      <a href="#route">route</a>
+      <a href="#contact">connect</a>
+    </div>
+    <a href="#contact" class="nav-cta">contact</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="page-shell">
+
+  <section class="panel hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>STATUS: ONLINE — OPEN TO WORK</div>
+        <div class="terminal-line"><span class="prompt">root@network:~$</span> whoami</div>
+        <h1>Hi, I'm Rifat Islam Torun — a <span class="accent">Network Engineer</span> & Web Developer.</h1>
+        <p class="lede">I design the infrastructure that moves data reliably, and I build the software that runs on top of it — <span class="typed-role" id="typedRole">routing, switching, firewalls</span></p>
+        <div class="btn-row">
+          <a href="#work" class="btn btn-primary">View projects →</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="ring-frame">
+        <div class="ring-outer"></div>
+        <div class="ring-mid"></div>
+        <div class="ring-inner">
+          <!-- PLACEHOLDER PHOTO — replace src="..." below with your own photo (e.g. photo.jpg placed next to this file) -->
+          <img class="profile-photo" src="myProfile.jpeg" alt="Rifat Islam Torun — placeholder photo, replace with your own">
+        </div>
+        <div class="float-chip">📡 open to work</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="about">
+    <div class="panel-pad about-grid">
+      <div>
+        <div class="eyebrow">01 — ABOUT</div>
+        <h2 style="margin-bottom:24px;">Two disciplines, one way of thinking.</h2>
+        <p>I started out troubleshooting switches and chasing packet loss across campus networks, and picked up web development along the way because I kept building internal tools to monitor the infrastructure I was managing. <strong>Now I do both, deliberately.</strong></p>
+        <p>On the infrastructure side, I design and maintain routing, switching, and security for networks that can't afford downtime. On the development side, I build the dashboards, internal tools, and client-facing sites that sit on top of that infrastructure — with the same attention to reliability I'd give a production router.</p>
+        <p>I like problems that live at the boundary between the two: a slow app that's actually a DNS issue, a "network problem" that's actually a bad API call. <strong>Fluency in both layers is where I do my best work.</strong></p>
+      </div>
+      <div>
+        <div class="topo-card">
+          <div class="topo-card-head">
+            <span>topology.svg</span>
+            <span>6 nodes · 6 links</span>
+          </div>
+          <svg class="topo-svg" viewBox="0 0 360 260" id="topoSvg">
+            <g id="edges">
+              <line class="edge" x1="180" y1="130" x2="70" y2="50"/>
+              <line class="edge" x1="180" y1="130" x2="290" y2="50"/>
+              <line class="edge" x1="180" y1="130" x2="55" y2="140"/>
+              <line class="edge" x1="180" y1="130" x2="305" y2="145"/>
+              <line class="edge" x1="180" y1="130" x2="95" y2="215"/>
+              <line class="edge" x1="180" y1="130" x2="265" y2="215"/>
+            </g>
+            <g id="packets"></g>
+            <circle class="node-dot" cx="70" cy="50" r="5"/>
+            <text class="node-label" x="70" y="34" text-anchor="middle">ROUTING</text>
+            <circle class="node-dot" cx="290" cy="50" r="5"/>
+            <text class="node-label" x="290" y="34" text-anchor="middle">SECURITY</text>
+            <circle class="node-dot" cx="55" cy="140" r="5"/>
+            <text class="node-label" x="55" y="160" text-anchor="middle">CLOUD</text>
+            <circle class="node-dot" cx="305" cy="145" r="5"/>
+            <text class="node-label" x="305" y="165" text-anchor="middle">FRONTEND</text>
+            <circle class="node-dot" cx="95" cy="215" r="5"/>
+            <text class="node-label" x="95" y="235" text-anchor="middle">BACKEND</text>
+            <circle class="node-dot" cx="265" cy="215" r="5"/>
+            <text class="node-label" x="265" y="235" text-anchor="middle">DEVOPS</text>
+            <circle class="node-dot node-core" cx="180" cy="130" r="9"/>
+            <text class="node-core-label" x="180" y="110" text-anchor="middle">CORE</text>
+          </svg>
+        </div>
+        <div class="specs">
+          <div class="specs-row"><span class="k">location</span><span class="v">Azimpur, Dhaka, Bangladesh</span></div>
+          <div class="specs-row"><span class="k">focus</span><span class="v">Networks + Web Systems</span></div>
+          <div class="specs-row"><span class="k">experience</span><span class="v">3+ years</span></div>
+          <div class="specs-row"><span class="k">certifications</span><span class="v">CCNA · MTCNA · MTCRE · MTCSE</span></div>
+          <div class="specs-row"><span class="k">availability</span><span class="v" style="color:var(--green)">Open to roles</span></div>
+          <div class="specs-row"><span class="k">languages</span><span class="v">Bangla, English</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="skills">
+    <div class="panel-pad" style="padding-bottom:0;">
+      <div class="section-head" style="margin-bottom:0;">
+        <h2>Two layers, one stack.</h2>
+        <span class="section-tag">// infrastructure ↔ application</span>
+      </div>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="layer-tag infra">Infrastructure layer</span>
+        <h3>Networking & Systems</h3>
+        <div class="layer-sub">the part that has to stay up</div>
+        <ul class="skill-list">
+          <li>Routing & Switching (Cisco, MikroTik) <span class="lvl">advanced</span></li>
+          <li>Firewalls & VPN (pfSense, FortiGate) <span class="lvl">advanced</span></li>
+          <li>Network Monitoring (Zabbix, PRTG) <span class="lvl">advanced</span></li>
+          <li>Linux Server Administration <span class="lvl">advanced</span></li>
+          <li>DNS, DHCP, Load Balancing <span class="lvl">advanced</span></li>
+          <li>Cloud Networking (AWS VPC, Azure) <span class="lvl">intermediate</span></li>
+        </ul>
+      </div>
+      <div class="layer">
+        <span class="layer-tag app">Application layer</span>
+        <h3>Web Development</h3>
+        <div class="layer-sub">the part people actually see</div>
+        <ul class="skill-list">
+          <li>JavaScript / TypeScript <span class="lvl">advanced</span></li>
+          <li>React & Next.js <span class="lvl">advanced</span></li>
+          <li>Node.js & REST APIs <span class="lvl">advanced</span></li>
+          <li>PHP / Laravel <span class="lvl">intermediate</span></li>
+          <li>SQL & Database Design <span class="lvl">intermediate</span></li>
+          <li>Docker & CI/CD <span class="lvl">intermediate</span></li>
+        </ul>
+      </div>
+      <div class="layer-connector">▲ both layers meet in deployment — servers I configure, apps I ship ▲</div>
+    </div>
+  </section>
+
+  <section class="panel" id="work">
+    <div class="panel-pad" style="padding-bottom:0;">
+      <div class="section-head" style="margin-bottom:0;">
+        <h2>Selected work.</h2>
+        <span class="section-tag">// projects</span>
+      </div>
+    </div>
+    <div class="project-list">
+
+      <div class="project">
+        <div class="project-id">status<span class="stat ok">200 OK</span></div>
+        <div>
+          <h3>Company Network Monitoring Dashboard</h3>
+          <p>Built a real-time dashboard that pulls SNMP data from 40+ network devices and visualizes uptime, bandwidth, and alert history for the IT team — replacing a spreadsheet-based process.</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">SNMP</span>
+            <span class="tag">WebSockets</span>
+          </div>
+        </div>
+        <a href="#" class="project-link">View case study →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-id">status<span class="stat ok">200 OK</span></div>
+        <div>
+          <h3>Branch Office VPN Rollout</h3>
+          <p>Designed and deployed a site-to-site VPN architecture connecting 6 branch offices to HQ, cutting inter-office latency and centralizing firewall policy management.</p>
+          <div class="tags">
+            <span class="tag">pfSense</span>
+            <span class="tag">IPsec</span>
+            <span class="tag">Routing</span>
+          </div>
+        </div>
+        <a href="#" class="project-link">View case study →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-id">status<span class="stat ok">200 OK</span></div>
+        <div>
+          <h3>Client Booking Platform</h3>
+          <p>End-to-end booking site with an admin panel, payment integration, and automated email confirmations — deployed on a self-managed VPS I also configured and hardened.</p>
+          <div class="tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Nginx</span>
+          </div>
+        </div>
+        <a href="#" class="project-link">View case study →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-id">status<span class="stat wip">IN PROGRESS</span></div>
+        <div>
+          <h3>[Your next project]</h3>
+          <p>Short description of what it does, what it's built with, and the problem it solves. Replace with your own project.</p>
+          <div class="tags">
+            <span class="tag">Stack</span>
+            <span class="tag">Tags</span>
+          </div>
+        </div>
+        <a href="#" class="project-link">View case study →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="panel" id="route">
+    <div class="panel-pad" style="padding-bottom:0;">
+      <div class="section-head" style="margin-bottom:0;">
+        <h2>Career route.</h2>
+        <span class="section-tag">// traceroute --to=present</span>
+      </div>
+    </div>
+    <div class="traceroute">
+      <div class="tr-header">
+        <span>hop</span>
+        <span>host</span>
+        <span>time</span>
+        <span>status</span>
+      </div>
+      <div class="tr-path" id="trPath">
+        <div class="tr-line"><div class="tr-line-fill" id="trFill"></div></div>
+
+        <div class="hop" data-hop="1">
+          <div class="hop-num"></div>
+          <div class="hop-info">
+            <div class="role">Junior Network Support</div>
+            <div class="org">First Company · IT Department</div>
+          </div>
+          <div class="hop-time">2019 – 2020</div>
+          <div class="hop-status up">UP</div>
+        </div>
+
+        <div class="hop" data-hop="2">
+          <div class="hop-num"></div>
+          <div class="hop-info">
+            <div class="role">Network Engineer</div>
+            <div class="org">Second Company · Infrastructure Team</div>
+          </div>
+          <div class="hop-time">2020 – 2022</div>
+          <div class="hop-status up">UP</div>
+        </div>
+
+        <div class="hop" data-hop="3">
+          <div class="hop-num"></div>
+          <div class="hop-info">
+            <div class="role">Network Engineer & Web Developer</div>
+            <div class="org">Third Company · IT & Digital Team</div>
+          </div>
+          <div class="hop-time">2022 – 2024</div>
+          <div class="hop-status up">UP</div>
+        </div>
+
+        <div class="hop" data-hop="4">
+          <div class="hop-num"></div>
+          <div class="hop-info">
+            <div class="role">Senior Network Engineer / Web Developer</div>
+            <div class="org">Current Company</div>
+          </div>
+          <div class="hop-time">2024 – Present</div>
+          <div class="hop-status current">CURRENT</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="panel contact-box" id="contact">
+    <!-- <div class="eyebrow"><span class="dot"></span>PING SUCCESSFUL — 0% PACKET LOSS</div> -->
+    <h2>Let's connect.</h2>
+    <p>Open to network engineering roles, web development work, or projects that need both. Reach out directly — I reply within a day or two.</p>
+    <div class="cmd-line">
+      <span class="prompt"></span> connect --email <span class="email" id="emailText">rifatislamtorun72@gmail.com</span>
+      <button class="copy-btn" id="copyBtn">copy</button>
+    </div>
+    <div class="social-row">
+      <a href="www.linkedin.com/in/rifat-islam-torun">LinkedIn</a>
+      <a href="https://github.com/rifatislamtorun-it">GitHub</a>
+      <a href="#">Resume ↓</a>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Rifa IT · Built from scratch, no framework.</footer>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const roles = ["routing, switching, firewalls", "React, Node.js, APIs", "monitoring, uptime, security", "clean interfaces, fast pages"];
+  let ri = 0;
+  const typedEl = document.getElementById('typedRole');
+  function cycleRole(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    ri = (ri + 1) % roles.length;
+    typedEl.style.opacity = 0;
+    setTimeout(() => {
+      typedEl.textContent = roles[ri];
+      typedEl.style.opacity = 1;
+    }, 300);
+  }
+  setInterval(cycleRole, 3400);
+
+  const packetsG = document.getElementById('packets');
+  const core = {x:180, y:150};
+  const targets = [{x:70,y:60},{x:290,y:60},{x:60,y:160},{x:300,y:165},{x:95,y:250},{x:265,y:250}];
+
+  function firePacket(target, delay){
+    const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r', '3');
+    c.setAttribute('class','packet');
+    c.setAttribute('cx', core.x);
+    c.setAttribute('cy', core.y);
+    packetsG.appendChild(c);
+    const duration = 900;
+    const start = performance.now() + delay;
+    function step(now){
+      const t = Math.min(1, Math.max(0, (now - start) / duration));
+      if(now < start){ requestAnimationFrame(step); return; }
+      const x = core.x + (target.x - core.x) * t;
+      const y = core.y + (target.y - core.y) * t;
+      c.setAttribute('cx', x);
+      c.setAttribute('cy', y);
+      c.setAttribute('opacity', 1 - t*0.3);
+      if(t < 1){ requestAnimationFrame(step); } else { c.remove(); }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function runTopoSequence(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    targets.forEach((t, i) => firePacket(t, i * 220));
+  }
+  window.addEventListener('load', () => setTimeout(runTopoSequence, 500));
+  setInterval(runTopoSequence, 6000);
+
+  const hops = document.querySelectorAll('.hop');
+  const trFill = document.getElementById('trFill');
+  const trPath = document.getElementById('trPath');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        updateFill();
+      }
+    });
+  }, { threshold: 0.4 });
+  hops.forEach(h => observer.observe(h));
+
+  function updateFill(){
+    const visibleHops = document.querySelectorAll('.hop.visible');
+    if(visibleHops.length === 0) return;
+    const last = visibleHops[visibleHops.length - 1];
+    const pathRect = trPath.getBoundingClientRect();
+    const lastRect = last.querySelector('.hop-num').getBoundingClientRect();
+    const pct = ((lastRect.top + lastRect.height/2) - pathRect.top) / pathRect.height * 100;
+    trFill.style.height = Math.min(100, Math.max(0, pct)) + '%';
+  }
+
+  const copyBtn = document.getElementById('copyBtn');
+  const emailText = document.getElementById('emailText').textContent;
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(emailText).then(() => {
+      copyBtn.textContent = 'copied';
+      setTimeout(() => copyBtn.textContent = 'copy', 1500);
+    });
+  });
+</script>
+
+</body>
+</html>
